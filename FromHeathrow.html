@@ -127,12 +127,24 @@
     Philadelphia: [-75.1652, 39.9526],
     Tashkent: [69.2401, 41.2995],
     Westerland: [8.3098, 54.9085],
-    Yekaterinburg: [60.6454, 56.8431]
+    Yekaterinburg: [60.6454, 56.8431],
+    AdDammam: [50.0888, 26.4207],
+    Basel: [7.5886, 47.5596],
+    Bengaluru: [77.5946, 12.9716],
+    BrizeNorton: [-1.5668, 51.7677],
+    Changsha: [112.9388, 28.2282],
+    Chengdu: [104.0668, 30.5728],
+    HoChiMinhCity: [106.6297, 10.8231],
+    Krasnoyarsk: [92.8932, 56.0153],
+    Lagos: [3.3792, 6.5244],
+    Nanjing: [118.7969, 32.0603],
+    Sylhet: [91.8687, 24.8949],
+    Tempa: [82.4572, 27.9506]
 };
 var BJData = [
     [{
         name: "Perth",
-        value: 3
+        value: 2
     }, {
         name: "London"
     }],
@@ -150,19 +162,19 @@ var BJData = [
     }],
     [{
         name: "Tokyo",
-        value: 14
+        value: 13
     }, {
         name: "London"
     }],
     [{
         name: "Chicago",
-        value: 22
+        value: 21
     }, {
         name: "London"
     }],
     [{
         name: "NewYork",
-        value: 47
+        value: 36
     }, {
         name: "London"
     }],
@@ -174,31 +186,31 @@ var BJData = [
     }],
     [{
         name: "AbuDhabi",
-        value: 15
+        value: 16
     }, {
         name: "London"
     }],
     [{
         name: "LosAngeles",
-        value: 17
+        value: 22
     }, {
         name: "London"
     }],
     [{
         name: "Boston",
-        value: 8
+        value: 6
     }, {
         name: "London"
     }],
     [{
         name: "Washington",
-        value: 8
+        value: 7
     }, {
         name: "London"
     }],
     [{
         name: "Bahrain",
-        value: 2
+        value: 1
     }, {
         name: "London"
     }],
@@ -210,49 +222,49 @@ var BJData = [
     }],
     [{
         name: "Doha",
-        value: 33
+        value: 35
     }, {
         name: "London"
     }],
     [{
         name: "Toronto",
-        value: 18
+        value: 17
     }, {
         name: "London"
     }],
     [{
         name: "Dallas",
-        value: 15
+        value: 13
     }, {
         name: "London"
     }],
     [{
         name: "Delhi",
-        value: 6
+        value: 3
     }, {
         name: "London"
     }],
     [{
         name: "Paris",
-        value: 11
+        value: 13
     }, {
         name: "London"
     }],
     [{
         name: "Dublin",
-        value: 29
+        value: 49
     }, {
         name: "London"
     }],
     [{
         name: "TelAviv",
-        value: 26
+        value: 31
     }, {
         name: "London"
     }],
     [{
         name: "Frankfurt",
-        value: 18
+        value: 19
     }, {
         name: "London"
     }],
@@ -270,7 +282,7 @@ var BJData = [
     }],
     [{
         name: "Hanoi",
-        value: 8
+        value: 7
     }, {
         name: "London"
     }],
@@ -300,19 +312,19 @@ var BJData = [
     }],
     [{
         name: "Stockholm",
-        value: 12
+        value: 10
     }, {
         name: "London"
     }],
     [{
         name: "Amsterdam",
-        value: 15
+        value: 19
     }, {
         name: "London"
     }],
     [{
         name: "Luqa",
-        value: 7
+        value: 8
     }, {
         name: "London"
     }],
@@ -323,14 +335,8 @@ var BJData = [
         name: "London"
     }],
     [{
-        name: "Ahmedabad",
-        value: 1
-    }, {
-        name: "London"
-    }],
-    [{
         name: "Atlanta",
-        value: 7
+        value: 6
     }, {
         name: "London"
     }],
@@ -342,25 +348,25 @@ var BJData = [
     }],
     [{
         name: "Mumbai",
-        value: 12
+        value: 11
     }, {
         name: "London"
     }],
     [{
         name: "Dusseldorf",
-        value: 6
+        value: 5
     }, {
         name: "London"
     }],
     [{
         name: "Milan",
-        value: 13
+        value: 5
     }, {
         name: "London"
     }],
     [{
         name: "Dubai",
-        value: 19
+        value: 17
     }, {
         name: "London"
     }],
@@ -384,13 +390,13 @@ var BJData = [
     }],
     [{
         name: "SanFrancisco",
-        value: 7
+        value: 6
     }, {
         name: "London"
     }],
     [{
         name: "Berlin",
-        value: 7
+        value: 5
     }, {
         name: "London"
     }],
@@ -408,7 +414,7 @@ var BJData = [
     }],
     [{
         name: "Tunis",
-        value: 2
+        value: 1
     }, {
         name: "London"
     }],
@@ -420,25 +426,19 @@ var BJData = [
     }],
     [{
         name: "Guangzhou",
-        value: 1
+        value: 7
     }, {
         name: "London"
     }],
     [{
         name: "Edinburgh",
-        value: 6
+        value: 5
     }, {
         name: "London"
     }],
     [{
         name: "Dhaka",
         value: 1
-    }, {
-        name: "London"
-    }],
-    [{
-        name: "Islamabad",
-        value: 2
     }, {
         name: "London"
     }],
@@ -450,19 +450,19 @@ var BJData = [
     }],
     [{
         name: "Sofia",
-        value: 6
+        value: 5
     }, {
         name: "London"
     }],
     [{
         name: "Cincinnati",
-        value: 6
+        value: 1
     }, {
         name: "London"
     }],
     [{
         name: "Seoul",
-        value: 9
+        value: 8
     }, {
         name: "London"
     }],
@@ -492,7 +492,7 @@ var BJData = [
     }],
     [{
         name: "Bangkok",
-        value: 4
+        value: 3
     }, {
         name: "London"
     }],
@@ -503,14 +503,8 @@ var BJData = [
         name: "London"
     }],
     [{
-        name: "Porto",
-        value: 5
-    }, {
-        name: "London"
-    }],
-    [{
         name: "Bridgetown",
-        value: 2
+        value: 1
     }, {
         name: "London"
     }],
@@ -522,25 +516,25 @@ var BJData = [
     }],
     [{
         name: "Lisbon",
-        value: 10
+        value: 8
     }, {
         name: "London"
     }],
     [{
         name: "Vancouver",
-        value: 2
+        value: 3
     }, {
         name: "London"
     }],
     [{
         name: "Larnaca",
-        value: 6
+        value: 2
     }, {
         name: "London"
     }],
     [{
         name: "Amman",
-        value: 3
+        value: 2
     }, {
         name: "London"
     }],
@@ -558,7 +552,13 @@ var BJData = [
     }],
     [{
         name: "Moscow",
-        value: 14
+        value: 23
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Nairobi",
+        value: 7
     }, {
         name: "London"
     }],
@@ -570,37 +570,31 @@ var BJData = [
     }],
     [{
         name: "Shanghai",
-        value: 24
-    }, {
-        name: "London"
-    }],
-    [{
-        name: "Sharjah",
-        value: 2
+        value: 38
     }, {
         name: "London"
     }],
     [{
         name: "Detroit",
-        value: 3
+        value: 2
     }, {
         name: "London"
     }],
     [{
         name: "Aberdeen",
-        value: 7
+        value: 3
     }, {
         name: "London"
     }],
     [{
         name: "Glasgow",
-        value: 6
+        value: 7
     }, {
         name: "London"
     }],
     [{
         name: "Bucharest",
-        value: 2
+        value: 3
     }, {
         name: "London"
     }],
@@ -624,37 +618,37 @@ var BJData = [
     }],
     [{
         name: "Leipzig",
-        value: 3
+        value: 8
     }, {
         name: "London"
     }],
     [{
         name: "Brussels",
-        value: 2
+        value: 6
     }, {
         name: "London"
     }],
     [{
         name: "CapeTown",
-        value: 3
+        value: 5
     }, {
         name: "London"
     }],
     [{
         name: "Istanbul",
-        value: 27
+        value: 24
     }, {
         name: "London"
     }],
     [{
         name: "Beijing",
-        value: 29
+        value: 48
     }, {
         name: "London"
     }],
     [{
         name: "Johannesburg",
-        value: 6
+        value: 9
     }, {
         name: "London"
     }],
@@ -665,44 +659,62 @@ var BJData = [
         name: "London"
     }],
     [{
-        name: "Newark",
-        value: 6
-    }, {
-        name: "London"
-    }],
-    [{
-        name: "Ezeiza",
+        name: "Hamilton",
         value: 4
     }, {
         name: "London"
     }],
     [{
-        name: "SanPaulo",
-        value: 5
+        name: "Hyderabad",
+        value: 1
     }, {
         name: "London"
     }],
     [{
-        name: "Manama",
+        name: "Orlando",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Newark",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Ezeiza",
         value: 3
     }, {
         name: "London"
     }],
     [{
-        name: "Wuhan",
+        name: "SanPaulo",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Mulhouse",
         value: 1
     }, {
         name: "London"
     }],
     [{
-        name: "Taipei",
+        name: "Manama",
         value: 2
     }, {
         name: "London"
     }],
     [{
+        name: "Taipei",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
         name: "Montreal",
-        value: 1
+        value: 3
     }, {
         name: "London"
     }],
@@ -714,18 +726,12 @@ var BJData = [
     }],
     [{
         name: "Almaty",
-        value: 1
-    }, {
-        name: "London"
-    }],
-    [{
-        name: "Cardiff",
         value: 2
     }, {
         name: "London"
     }],
     [{
-        name: "Faro",
+        name: "Cardiff",
         value: 1
     }, {
         name: "London"
@@ -738,12 +744,6 @@ var BJData = [
     }],
     [{
         name: "KualaLumpur",
-        value: 1
-    }, {
-        name: "London"
-    }],
-    [{
-        name: "Lelystad",
         value: 1
     }, {
         name: "London"
@@ -762,18 +762,84 @@ var BJData = [
     }],
     [{
         name: "Tashkent",
-        value: 1
-    }, {
-        name: "London"
-    }],
-    [{
-        name: "Westerland",
-        value: 1
+        value: 2
     }, {
         name: "London"
     }],
     [{
         name: "Yekaterinburg",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "AdDammam",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Basel",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Bengaluru",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "BrizeNorton",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Changsha",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Chengdu",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "HoChiMinhCity",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Krasnoyarsk",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Lagos",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Nanjing",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Sylhet",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Tempa",
         value: 1
     }, {
         name: "London"
@@ -783,12 +849,12 @@ var convertData = function(data) {
     var res = [];
     for (var i = 0; i < data.length; i++) {
         var dataItem = data[i];
-        var fromCoord = geoCoordMap[dataItem[0].name];
-        var toCoord = geoCoordMap[dataItem[1].name];
+        var fromCoord = geoCoordMap[dataItem[1].name];
+        var toCoord = geoCoordMap[dataItem[0].name];
         if (fromCoord && toCoord) {
             res.push({
-                fromName: dataItem[0].name,
-                toName: dataItem[1].name,
+                fromName: dataItem[1].name,
+                toName: dataItem[0].name,
                 coords: [fromCoord, toCoord],
                 value: dataItem[0].value
             });
@@ -912,7 +978,7 @@ var series = [];
 option = {
     backgroundColor: '#1B2631',
     title: {
-        text: 'Heathrow Inbound Route Map (20/02 / 2020-26 / 05/2020)',
+        text: 'Heathrow Outbound Route Map (20/02 / 2020-26 / 05/2020)',
         left: 'center',
         textStyle: {
             color: '#fff'
@@ -976,7 +1042,7 @@ option = {
         map: "world",
         label: {
             emphasis: {
-                show: false
+                show: true
             }
         },
         roam: true, //是否允许缩放
