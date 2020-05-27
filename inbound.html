@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RouteMap</title>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/world.js"></script>
+</head>
+<body>
+<div id="main" style="width: 100%; height:120vh;"></div>
+
+<script>
+    var chart = echarts.init(document.getElementById("main"));
+    var geoCoordMap = {
+    London: [-0.1278, 51.5074],
+    Perth: [115.8605, -31.9505],
+    HongKong: [114.1694, 22.3193],
+    Singapore: [103.8198, 1.3521],
+    Tokyo: [139.7690, 35.6804],
+    Chicago:[-87.6298, 41.8781],
+    NewYork:[-74.0060,40.7128],
+    Muscat: [58.3829, 23.5868],
+    LosAngeles: [-118.2437, 34.0522],
+    AbuDhabi: [54.3773, 24.4537],
+    Boston: [-71.0589, 42.3601],
+    Washington: [-77.0369, 38.9073],
+    Bahrain: [50.5077, 26.0667],
+    AddisAbaba:[38.7578, 8.9806],
+    Doha: [51.5310, 25.2871],
+    Toronto: [-79.3832, 43.6532],
+    Dallas:[-96.7970, 32.7663],
+    Delhi: [77.1021, 28.7041],
+    Paris: [2.3522, 48.8566],
+    Dublin: [-6.2530, 53.3413],
+    TelAviv: [34.7818, 32.0344],
+    Frankfurt: [8.6820, 50.1109],
+    Cork: [-8.4756, 51.8972],
+    Copenhagen: [12.5682, 55.6761],
+    Hanoi: [105.8342, 21.0283],
+    Shannon: [-8.8730, 52.7125],
+    Helsinki: [24.9384, 60.1699],
+    Oslo: [10.7522, 59.9139],
+    Miami: [-80.1918, 25.7633],
+    Stockholm: [18.0686, 59.3294],
+    Amsterdam: [4.8945, 52.3667],
+    Luqa: [14.4896, 35.8538],
+    Belfast: [-5.9304, 54.5973],
+    Ahmedabad: [72.5714, 23.0225],
+    Atlanta: [-84.3880, 33.7403],
+    Rome: [12.4964, 41.9028],
+    Mumbai: [72.8777, 19.0760],
+    Dusseldorf: [6.7735, 51.2277],
+    Milan: [9.1900, 45.4642],
+    Dubai: [55.2708, 25.2049],
+    Belgrade: [55.2708, 25.2048],
+    Jeddah: [39.1925,21.4858],
+    Reykjavik: [-21.9426, 64.1644],
+    SanFrancisco: [-122.4192, 37.7759],
+    Berlin: [13.4028, 52.5200],
+    Cairo: [31.2357, 30.0444],
+    Geneva: [6.1432, 46.2044],
+    Tunis: [9.5375, 33.8863],
+    Nice: [7.2620, 43.7102],
+    Guangzhou: [113.2644, 23.1291],
+    Edinburgh: [-3.1833, 55.9533],
+    Dhaka: [90.4125, 23.8103],
+    Islamabad: [73.0479, 33.6844],
+    Riyadh: [46.6753, 24.7136],
+    Sofia: [23.3219, 42.6977],
+    Cincinnati: [-84.5120, 39.1031],
+    Seoul: [126.9780, 37.5656],
+    IsleOfMan: [-4.5481, 54.2361],
+    Madrid: [-3.7038, 40.4168],
+    Stavanger: [5.7331, 58.9700],
+    Gibraltar: [-5.3536, 36.1408],
+    Bangkok: [100.5018, 13.7563],
+    Colombo: [79.8612, 6.9271],
+    Porto: [-8.6291, 41.1579],
+    Bridgetown: [-59.6131, 13.1060],
+    Zurich: [8.5417, 47.3769],
+    Lisbon: [-9.1393,38.7223],
+    Vancouver: [-123.1207, 49.2827],
+    Larnaca: [33.6232, 34.9003],
+    Amman: [35.9102, 31.9839],
+    Barcelona: [2.1734, 41.3851],
+    MexicoCity: [-99.1332, 19.4326],
+    Moscow: [37.6173, 55.7558],
+    Nairobi: [36.8219, -1.2921],
+    Tehran: [51.3890, 35.6892],
+    Shanghai: [121.4737, 31.2304],
+    Sharjah: [55.4209, 25.3463],
+    Baku: [49.8671, 40.4093],
+    Detroit: [-83.0458, 42.3314],
+    Kigali: [30.0619, -1.9441],
+    Aberdeen: [-2.0943, 57.1497],
+    Glasgow: [-4.2518, 55.8642],
+    Bucharest: [26.1025, 44.4268],
+    Manila: [120.9842, 14.5995],
+    Beirut: [35.5018, 33.8938],
+    Qingdao: [120.3826, 36.0671],
+    Leipzig: [12.3731, 51.3397],
+    Brussels: [4.3517, 50.8503],
+    CapeTown: [18.4241, -33.9249],
+    Istanbul: [28.9784, 41.0082],
+    Beijing: [116.4074, 39.9042],
+    Johannesburg: [28.0473, -26.2041],
+    Castletown: [-4.6547, 54.0750],
+    Hamilton: [-79.8711, 43.2557],
+    Hyderabad: [78.4867, 17.3850],
+    Orlando: [-81.3792, 28.5383],
+    Newark: [-74.1724, 40.7357],
+    Ezeiza: [-58.5348, -34.8150],
+    SanPaulo: [-46.6333, -23.5505],
+    Mulhouse: [7.5255, 47.5982],
+    Manama: [50.5876, 26.2235],
+    Wuhan: [114.3055, 30.5928],
+    Taipei: [121.5654, 25.0330],
+    Montreal: [-73.5673, 45.5017],
+    Antalya: [30.7133, 36.8969],
+    Almaty: [76.8512, 43.2220],
+    Cardiff: [-3.1791,51.4816],
+    Faro: [-7.9304, 37.0194],
+    Georgetown: [100.3288, 5.4141],
+    KualaLumpur: [101.6869, 3.1390],
+    Lelystad: [5.4714, 52.5185],
+    Manchester: [-2.2426, 53.4808],
+    Philadelphia: [-75.1652, 39.9526],
+    Tashkent: [69.2401, 41.2995],
+    Westerland: [8.3098, 54.9085],
+    Yekaterinburg: [60.6454, 56.8431]
+};
+var BJData = [
+    [{
+        name: "Perth",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "HongKong",
+        value: 37
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Singapore",
+        value: 16
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Tokyo",
+        value: 14
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Chicago",
+        value: 22
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "NewYork",
+        value: 47
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Muscat",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "AbuDhabi",
+        value: 15
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "LosAngeles",
+        value: 17
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Boston",
+        value: 8
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Washington",
+        value: 8
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Bahrain",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "AddisAbaba",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Doha",
+        value: 33
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Toronto",
+        value: 18
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Dallas",
+        value: 15
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Delhi",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Paris",
+        value: 11
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Dublin",
+        value: 29
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "TelAviv",
+        value: 26
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Frankfurt",
+        value: 18
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Cork",
+        value: 8
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Copenhagen",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Hanoi",
+        value: 8
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Shannon",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Helsinki",
+        value: 14
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Oslo",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Miami",
+        value: 13
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Stockholm",
+        value: 12
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Amsterdam",
+        value: 15
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Luqa",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Belfast",
+        value: 11
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Ahmedabad",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Atlanta",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Rome",
+        value: 21
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Mumbai",
+        value: 12
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Dusseldorf",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Milan",
+        value: 13
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Dubai",
+        value: 19
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Belgrade",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Jeddah",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Reykjavik",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "SanFrancisco",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Berlin",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Cairo",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Geneva",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Tunis",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Nice",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Guangzhou",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Edinburgh",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Dhaka",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Islamabad",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Riyadh",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Sofia",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Cincinnati",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Seoul",
+        value: 9
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "IsleOfMan",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Madrid",
+        value: 9
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Stavanger",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Gibraltar",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Bangkok",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Colombo",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Porto",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Bridgetown",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Zurich",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Lisbon",
+        value: 10
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Vancouver",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Larnaca",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Amman",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Barcelona",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "MexicoCity",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Moscow",
+        value: 14
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Tehran",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Shanghai",
+        value: 24
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Sharjah",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Detroit",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Aberdeen",
+        value: 7
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Glasgow",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Bucharest",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Manila",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Beirut",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Qingdao",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Leipzig",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Brussels",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "CapeTown",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Istanbul",
+        value: 27
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Beijing",
+        value: 29
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Johannesburg",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Castletown",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Newark",
+        value: 6
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Ezeiza",
+        value: 4
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "SanPaulo",
+        value: 5
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Manama",
+        value: 3
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Wuhan",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Taipei",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Montreal",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Antalya",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Almaty",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Cardiff",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Faro",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Georgetown",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "KualaLumpur",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Lelystad",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Manchester",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Philadelphia",
+        value: 2
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Tashkent",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Westerland",
+        value: 1
+    }, {
+        name: "London"
+    }],
+    [{
+        name: "Yekaterinburg",
+        value: 1
+    }, {
+        name: "London"
+    }]
+];
+var convertData = function(data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var dataItem = data[i];
+        var fromCoord = geoCoordMap[dataItem[0].name];
+        var toCoord = geoCoordMap[dataItem[1].name];
+        if (fromCoord && toCoord) {
+            res.push({
+                fromName: dataItem[0].name,
+                toName: dataItem[1].name,
+                coords: [fromCoord, toCoord],
+                value: dataItem[0].value
+            });
+        }
+    }
+    return res;
+};
+
+var series = [];
+[
+    ["London", BJData]
+].forEach(function(item, i) {
+    series.push({
+            name: item[2],
+            type: "lines",
+            zlevel: 2,
+            effect: {
+                show: true,
+                //color: "#ffffff",
+                period: 4, //箭头指向速度，值越小速度越快
+                trailLength: 0.05, //特效尾迹长度[0,1]值越大，尾迹越长重
+                symbol: "arrow", //箭头图标
+                symbolSize: 5 //图标大小
+            },
+            lineStyle: {
+                normal: {
+                    width: 1, //尾迹线条宽度
+                    opacity: 0.05, //尾迹线条透明度
+                    curveness: 0.3 //尾迹线条曲直度
+                }
+            },
+            label: {
+                normal: {
+                    show: false,
+                    position: 'middle',
+                    formatter: '{b}'
+                }
+            },
+            data: convertData(item[1])
+        }, {
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            zlevel: 2,
+            rippleEffect: {
+                //涟漪特效
+                period: 4, //动画时间，值越小速度越快
+                brushType: "stroke", //波纹绘制方式 stroke, fill
+                scale: 4 //波纹圆环最大限制，值越大波纹越大
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: "right", //显示位置
+                    offset: [5, 0], //偏移设置
+                    formatter: "{b}", //圆环显示文字
+                    textStyle: {
+                        color: "orange"
+                    }
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            symbol: "circle",
+            symbolSize: function(val) {
+                return 4 + val[2] / 1000; //圆环大小
+            },
+            itemStyle: {
+                normal: {
+                    show: false
+                }
+            },
+            data: item[1].map(function(dataItem) {
+                return {
+                    name: dataItem[0].name,
+                    value: geoCoordMap[dataItem[0].name].concat([dataItem[0].value])
+                };
+            })
+        },
+        //被攻击点
+        {
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            zlevel: 3,
+            rippleEffect: {
+                //涟漪特效
+                period: 4, //动画时间，值越小速度越快
+                brushType: "stroke", //波纹绘制方式 stroke, fill
+                scale: 4 //波纹圆环最大限制，值越大波纹越大
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: "right",
+                    color: "#00ffff",
+                    formatter: "{b}",
+                    textStyle: {
+                        color: "#00ffff"
+                    }
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            symbol: "circle",
+            symbolSize: 15,
+            itemStyle: {
+                normal: {
+                    show: false,
+                }
+            },
+            data: [{
+                name: item[0],
+                // concat([10000])决定图例的颜色
+                value: geoCoordMap[item[0]].concat([10000])
+            }]
+        }
+    );
+});
+
+option = {
+    backgroundColor: '#1B2631',
+    title: {
+        text: 'Heathrow Inbound Route Map (20/02 / 2020-26 / 05/2020)',
+        left: 'center',
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    tooltip: {
+        trigger: "item",
+        formatter: function(params, ticket, callback) {
+            if (params.seriesType == "effectScatter") {
+                return params.marker+params.data.name + "" + params.data.value[2];
+            } else if (params.seriesType == "lines") {
+                return params.data.fromName + " -> " + params.data.toName + "<br />" + params.data.value;
+            } else {
+                return params.name;
+            }
+        }
+        // backgroundColor: "#1540a1",
+        // borderColor: "#FFFFCC",
+        // showDelay: 0,
+        // hideDelay: 0,
+        // enterable: true,
+        // transitionDuration: 0,
+        // extraCssText: "z-index:100",
+        // formatter: function(params, ticket, callback) {
+        //     //根据业务自己拓展要显示的内容
+        //     var res = "";
+        //     var name = params.name;
+        //     var value = params.value[params.seriesIndex + 1];
+        //     res =
+        //         "<span style='color:#fff;'>" +
+        //         name +
+        //         "</span><br/>数据：" +
+        //         value;
+        //     return res;
+        // }
+    },
+    legend: {
+        show: true,
+        orient: 'vertical',
+        top: 'bottom',
+        left: 'right',
+        data: ['北京 Top10', '上海 Top10', '广州 Top10'],
+        textStyle: {
+            color: '#fff'
+        },
+        selectedMode: 'single'
+    },
+    visualMap: {
+        //图例值控制
+        min: 0,
+        max: 50,
+        show: true,
+        calculable: true,
+        // 图例颜色
+        color: ["#0bc7f3", "red", "#FFFF00"],
+        textStyle: {
+            color: "#fff"
+        },
+    },
+    geo: {
+        map: "world",
+        label: {
+            emphasis: {
+                show: false
+            }
+        },
+        roam: true, //是否允许缩放
+        layoutCenter: ["50%", "50%"], //地图位置
+        layoutSize: "180%",
+        itemStyle: {
+            normal: {
+                color: "#000", //地图背景色
+                borderColor: "#5bc1c9" //省市边界线
+            },
+            emphasis: {
+                color: "rgba(37, 43, 61, .5)" //悬浮背景
+            }
+        }
+    },
+
+    series: series
+};
+    chart.setOption(option);
+</script>
+</body>
+</html>
